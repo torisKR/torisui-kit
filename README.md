@@ -1,94 +1,50 @@
 # TorisUI Kit
 
-[![npm](https://img.shields.io/npm/v/@toris-dev/ui)](https://www.npmjs.com/package/@toris-dev/ui)
-[![CI](https://github.com/toris-dev/torisui-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/toris-dev/torisui-kit/actions/workflows/ci.yml)
-[![license: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+React 제품에 일관된 인터랙션과 접근성을 제공하는 **`@toris-dev/ui`** 컴포넌트 라이브러리 모노레포입니다. 다크 테마를 기본으로 하며 버튼·폼·오버레이·탐색·피드백 컴포넌트를 조합해 제품 UI를 빠르게 구성합니다.
 
-Monorepo for **[`@toris-dev/ui`](https://www.npmjs.com/package/@toris-dev/ui)** — a modern, interactive React UI component library based on TorisUI.
+## 제공 범위
 
-> Interactive · Modern · Fluid · Soft-glass · Dark-first · Accessible · Developer-friendly
+- `@toris-dev/ui`: Button, Card, Input, Select, Checkbox, RadioGroup, Slider, Toggle, Dialog, Sheet, Popover, Table, Tabs, Tooltip, DropdownMenu, Toast, Pagination 등
+- WAI-ARIA 키보드 탐색, 포커스 트랩, reduced-motion, forced-colors를 고려한 상호작용
+- `ToriProvider`, 디자인 토큰, 테마 스타일시트
+- `apps/docs`: Vite 기반 컴포넌트 플레이그라운드
 
-## Install & use
+## 구조
+
+```text
+packages/ui/   라이브러리 소스·Vitest 테스트·tsup 빌드
+apps/docs/     문서/컴포넌트 플레이그라운드
+docs/          시작하기·아키텍처·테마·릴리스 문서
+```
+
+## 사용
 
 ```bash
-npm install @toris-dev/ui
+pnpm install
+pnpm --filter @toris-dev/ui build
 ```
 
 ```tsx
 import { Button, Card, ToriProvider } from '@toris-dev/ui';
 import '@toris-dev/ui/styles.css';
 
-export default function App() {
-  return (
-    <ToriProvider theme="dark">
-      <Card interactive>
-        <Button variant="glow">Start</Button>
-      </Card>
-    </ToriProvider>
-  );
+export function Example() {
+  return <ToriProvider theme="dark"><Card interactive><Button variant="glow">시작</Button></Card></ToriProvider>;
 }
 ```
 
-## Repository layout
-
-```txt
-torisui-kit/
-├─ packages/ui/        # @toris-dev/ui library (tsup build, vitest tests)
-├─ apps/docs/          # Vite component playground (pnpm --filter torisui-docs dev)
-├─ docs/               # Project documentation (architecture, harness, releases, theming)
-└─ .github/workflows/  # CI + hardened npm publish automation
-```
-
-## Development commands
+## 개발 및 검증
 
 ```bash
-pnpm install                            # install dependencies
-pnpm verify                             # lint + typecheck + test + build (full quality gate)
-pnpm --filter torisui-docs dev          # run the playground (localhost:5173)
-pnpm --filter @toris-dev/ui test:watch  # component tests in watch mode
-pnpm changeset                          # record a version bump / release note
+pnpm --filter torisui-docs dev   # 문서 앱
+pnpm test                        # 전체 테스트
+pnpm verify                      # lint, typecheck, test, build
+pnpm changeset                   # 릴리스 변경 기록
 ```
 
-## Components
+Node.js 20 이상, pnpm 9.14.2를 사용합니다. npm 배포는 Changesets와 저장소의 Trusted Publishing CI를 통해 수행하며, 로컬 `pnpm build`는 패키지 산출물 확인일 뿐 스토어 출시를 의미하지 않습니다.
 
-| Component | Status | Notes |
-| --- | --- | --- |
-| Button / IconButton | ✅ | solid·soft·outline·ghost·glow, loading, icons, `asChild` (full parity) |
-| Card | ✅ | surface·glass·elevated; `interactive` is keyboard-accessible |
-| Input / Textarea | ✅ | shared field scaffolding: label, helper, error, full ARIA wiring |
-| Select | ✅ | styled native select, placeholder option, field scaffolding |
-| Checkbox / RadioGroup | ✅ | native inputs, indeterminate, description line, arrow-key nav |
-| Slider | ✅ | single-thumb native range, gradient fill, keyboard/touch |
-| Toggle / ToggleGroup | ✅ | aria-pressed, single/multiple, roving focus, forced-colors safe |
-| Badge | ✅ | solid·soft·outline·gradient × 6 tones, WCAG-checked foregrounds |
-| Avatar | ✅ | image with initials fallback, 4 sizes, status dot |
-| Alert | ✅ | info/success/warning/danger, default icons, dismissible |
-| Progress | ✅ | determinate + indeterminate, gradient fill, reduced-motion safe |
-| Spinner / Skeleton | ✅ | loading states; reduced-motion safe shimmer |
-| Switch | ✅ | controlled/uncontrolled, keyboard, `wrapperClassName` |
-| Accordion / Collapsible | ✅ | multi/single-item and standalone disclosure, region wiring |
-| Dialog / Sheet | ✅ | modal center dialog and edge drawer, focus trap, ref-counted scroll lock |
-| Popover / HoverCard | ✅ | non-modal anchored panel; hover/focus card, flip positioning |
-| Table | ✅ | composable semantic table suite, `aria-sort` |
-| Rating | ✅ | star radiogroup, keyboard, hover preview, read-only |
-| Label / AspectRatio | ✅ | accessible form label; fixed-ratio box |
-| Toast | ✅ | success/error/info/warning/promise, hover-pause, smart eviction |
-| Tabs | ✅ | roving tabindex, arrow/Home/End keys, nested-safe |
-| Tooltip | ✅ | hover/focus, delay, placement, mounted only while open |
-| DropdownMenu | ✅ | WAI-ARIA menu, roving focus, type-ahead, layer-stack aware |
-| Pagination | ✅ | nav landmark, non-color current page, ellipsis collapsing |
-| Separator / Breadcrumb | ✅ | layout divider; composable navigation trail with `asChild` |
-| Kbd / EmptyState | ✅ | semantic keycap; empty/first-run placeholder with action slot |
+## 문서와 라이선스
 
-## Documentation
-
-- [Getting started](./docs/getting-started.md)
-- [Architecture](./docs/architecture.md)
-- [Design tokens & theming](./docs/theming.md)
-- [Component API](./docs/components.md)
-- [Engineering harness](./docs/harness.md) — quality gates, CI, testing strategy
-- [Releases & npm publishing](./docs/release.md) — Changesets + Trusted Publishing
-
-## License
-
-[MIT](./LICENSE) © toris-dev
+- [Getting started](./docs/getting-started.md) · [Architecture](./docs/architecture.md) · [Theming](./docs/theming.md) · [Component API](./docs/components.md)
+- [MIT](./LICENSE) © toris-dev
