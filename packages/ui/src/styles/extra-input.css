@@ -1,0 +1,400 @@
+/* Input and workflow extensions. Uses the same public theme tokens as the core components. */
+.tori-number-input {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: var(--tori-radius-md);
+  background: rgb(var(--tori-surface-raised));
+  overflow: visible;
+  min-width: 0;
+  width: 100%;
+}
+.tori-number-input__button {
+  flex: 0 0 44px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgb(var(--tori-fg));
+  font: inherit;
+  font-size: 20px;
+  border-radius: var(--tori-radius-md);
+  cursor: pointer;
+  transition: background var(--tori-motion-fast) var(--tori-ease);
+}
+.tori-number-input__button:hover:not(:disabled) {
+  background: rgb(var(--tori-primary) / 0.1);
+  color: rgb(var(--tori-primary));
+}
+.tori-number-input__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.tori-number-input__control {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  min-height: 44px;
+  border: 0;
+  border-inline: 1px solid rgb(var(--tori-border));
+  background: rgb(var(--tori-surface));
+  color: rgb(var(--tori-fg));
+  padding: 0 8px;
+  font: inherit;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+.tori-number-input__control::-webkit-inner-spin-button,
+.tori-number-input__control::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.tori-number-input__control[aria-invalid='true'] {
+  border-color: rgb(var(--tori-danger));
+}
+.tori-number-input--disabled {
+  opacity: 0.6;
+}
+.tori-segmented-control {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: var(--tori-radius-md);
+  background: rgb(var(--tori-surface));
+}
+.tori-segmented-control--vertical {
+  flex-direction: column;
+}
+.tori-segmented-control__item {
+  flex: 1;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: var(--tori-radius-sm);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgb(var(--tori-muted));
+  background: transparent;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  transition:
+    background var(--tori-motion-fast) var(--tori-ease),
+    color var(--tori-motion-fast) var(--tori-ease);
+}
+.tori-segmented-control__item:hover:not(:disabled) {
+  background: rgb(var(--tori-primary) / 0.07);
+  color: rgb(var(--tori-fg));
+}
+.tori-segmented-control__item[aria-checked='true'] {
+  background: rgb(var(--tori-primary));
+  color: rgb(var(--tori-primary-fg));
+  box-shadow: var(--tori-shadow-sm);
+}
+.tori-segmented-control__item:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.tori-stepper {
+  width: 100%;
+}
+.tori-stepper__list {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+.tori-stepper__item {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+.tori-stepper__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: calc(50% + 22px);
+  width: calc(100% - 36px);
+  height: 1px;
+  background: rgb(var(--tori-border));
+  pointer-events: none;
+}
+.tori-stepper__item[data-state='complete']::after {
+  background: rgb(var(--tori-primary) / 0.5);
+}
+.tori-stepper__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 44px;
+  min-height: 44px;
+  position: relative;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  color: rgb(var(--tori-muted));
+  padding: 4px;
+  border-radius: var(--tori-radius-sm);
+  font: inherit;
+  cursor: pointer;
+}
+.tori-stepper__button:hover:not(:disabled) {
+  color: rgb(var(--tori-primary));
+}
+.tori-stepper__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.tori-stepper__number {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: 50%;
+  background: rgb(var(--tori-surface-raised));
+  color: rgb(var(--tori-muted));
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.tori-stepper__item[data-state='complete'] .tori-stepper__number {
+  background: rgb(var(--tori-primary) / 0.1);
+  color: rgb(var(--tori-primary));
+  border-color: rgb(var(--tori-primary) / 0.3);
+}
+.tori-stepper__button[aria-current='step'] .tori-stepper__number {
+  background: rgb(var(--tori-primary));
+  color: rgb(var(--tori-primary-fg));
+  border-color: rgb(var(--tori-primary));
+  box-shadow: 0 0 0 4px rgb(var(--tori-primary) / 0.1);
+}
+.tori-stepper__button[aria-current='step'] {
+  color: rgb(var(--tori-fg));
+}
+.tori-stepper__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.tori-stepper__description {
+  font-size: 10px;
+  color: rgb(var(--tori-muted));
+  font-weight: 400;
+}
+.tori-stepper--vertical .tori-stepper__list {
+  flex-direction: column;
+  gap: 12px;
+}
+.tori-stepper--vertical .tori-stepper__button {
+  flex-direction: row;
+  gap: 12px;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 4px;
+}
+.tori-stepper--vertical .tori-stepper__text {
+  text-align: left;
+}
+.tori-stepper--vertical .tori-stepper__item:not(:last-child)::after {
+  top: 40px;
+  left: 22px;
+  width: 1px;
+  height: calc(100% - 24px);
+}
+.tori-tag-input {
+  width: 100%;
+  min-width: 0;
+  padding: 7px 8px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: var(--tori-radius-md);
+  background: rgb(var(--tori-surface));
+}
+.tori-tag-input:focus-within {
+  border-color: rgb(var(--tori-primary));
+}
+.tori-tag-input--disabled {
+  opacity: 0.55;
+}
+.tori-tag-input__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0 0 5px;
+}
+.tori-tag-input__tag {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 32px;
+  padding-left: 10px;
+  background: rgb(var(--tori-primary) / 0.1);
+  color: rgb(var(--tori-fg));
+  border: 1px solid rgb(var(--tori-primary) / 0.18);
+  border-radius: var(--tori-radius-sm);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.tori-tag-input__tag > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.tori-tag-input__remove {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgb(var(--tori-muted));
+  border-radius: var(--tori-radius-sm);
+  font: inherit;
+  font-size: 18px;
+  cursor: pointer;
+}
+.tori-tag-input__remove:hover:not(:disabled) {
+  background: rgb(var(--tori-primary) / 0.1);
+  color: rgb(var(--tori-fg));
+}
+.tori-tag-input__remove:disabled {
+  cursor: not-allowed;
+}
+.tori-tag-input__entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.tori-tag-input__control {
+  width: 0;
+  min-width: 0;
+  flex: 1;
+  min-height: 44px;
+  padding: 0 5px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: rgb(var(--tori-fg));
+  font: inherit;
+  font-size: 13px;
+}
+.tori-tag-input__control::placeholder {
+  color: rgb(var(--tori-muted));
+}
+.tori-tag-input__add {
+  flex: none;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--tori-radius-sm);
+  background: rgb(var(--tori-primary));
+  color: rgb(var(--tori-primary-fg));
+  font: inherit;
+  font-size: 20px;
+  cursor: pointer;
+}
+.tori-tag-input__add:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.tori-tag-input__control[aria-invalid='true'] {
+  box-shadow: inset 0 -2px 0 rgb(var(--tori-danger));
+}
+.tori-meter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+}
+.tori-meter-field__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: rgb(var(--tori-fg));
+}
+.tori-meter-field__header label {
+  font-weight: 500;
+}
+.tori-meter-field__value {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: rgb(var(--tori-fg));
+}
+.tori-meter-track {
+  height: 12px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: var(--tori-radius-full);
+  background: rgb(var(--tori-surface));
+  overflow: hidden;
+  --tori-meter-color: var(--tori-primary);
+}
+.tori-meter-track--success {
+  --tori-meter-color: var(--tori-success);
+}
+.tori-meter-track--warning {
+  --tori-meter-color: var(--tori-warning);
+}
+.tori-meter-track--danger {
+  --tori-meter-color: var(--tori-danger);
+}
+.tori-meter-track > span {
+  height: 100%;
+  display: block;
+  background: rgb(var(--tori-meter-color));
+  border-radius: inherit;
+  transition: width var(--tori-motion-normal) var(--tori-ease);
+}
+.tori-meter {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (forced-colors: active) {
+  .tori-segmented-control__item[aria-checked='true'],
+  .tori-stepper__button[aria-current='step'] .tori-stepper__number {
+    background: Highlight;
+    color: HighlightText;
+    border-color: Highlight;
+  }
+  .tori-meter-track {
+    border: 1px solid CanvasText;
+    background: Canvas;
+  }
+  .tori-meter-track > span {
+    background: Highlight;
+    forced-color-adjust: none;
+  }
+}

@@ -8,7 +8,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const src = path.join(root, '..', 'src', 'styles');
 const dist = path.join(root, '..', 'dist');
 
-const order = ['tokens.css', 'base.css', 'components.css'];
+const order = ['tokens.css', 'base.css', 'components.css', 'extra-input.css', 'extra-display.css'];
 
 const chunks = await Promise.all(
   order.map(async (name) => {

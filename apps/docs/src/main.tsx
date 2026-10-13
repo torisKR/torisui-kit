@@ -7,7 +7,10 @@ import { App } from './App';
 import '../../../packages/ui/src/styles/tokens.css';
 import '../../../packages/ui/src/styles/base.css';
 import '../../../packages/ui/src/styles/components.css';
+import '../../../packages/ui/src/styles/extra-input.css';
+import '../../../packages/ui/src/styles/extra-display.css';
 import './playground.css';
+import './demo-input-extra.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

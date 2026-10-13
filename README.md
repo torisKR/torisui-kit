@@ -7,7 +7,7 @@ React 제품에 일관된 인터랙션과 접근성을 제공하는 **`@toris-de
 - `@toris-dev/ui`: Button, Card, Input, Select, Checkbox, RadioGroup, Slider, Toggle, Dialog, Sheet, Popover, Table, Tabs, Tooltip, DropdownMenu, Toast, Pagination 등
 - WAI-ARIA 키보드 탐색, 포커스 트랩, reduced-motion, forced-colors를 고려한 상호작용
 - `ToriProvider`, 디자인 토큰, 테마 스타일시트
-- `apps/docs`: Vite 기반 컴포넌트 플레이그라운드
+- `apps/docs`: 분류·검색·테마 전환·큰 미리보기·코드 복사가 가능한 인터랙티브 컴포넌트 갤러리
 
 ## 구조
 
@@ -29,7 +29,13 @@ import { Button, Card, ToriProvider } from '@toris-dev/ui';
 import '@toris-dev/ui/styles.css';
 
 export function Example() {
-  return <ToriProvider theme="dark"><Card interactive><Button variant="glow">시작</Button></Card></ToriProvider>;
+  return (
+    <ToriProvider theme="dark">
+      <Card interactive>
+        <Button variant="glow">시작</Button>
+      </Card>
+    </ToriProvider>
+  );
 }
 ```
 
@@ -41,6 +47,8 @@ pnpm test                        # 전체 테스트
 pnpm verify                      # lint, typecheck, test, build
 pnpm changeset                   # 릴리스 변경 기록
 ```
+
+문서 앱은 `/torisui-kit/` 경로로 열립니다. 토리스 사이트에 빌드 결과를 연결하는 절차는 [쇼케이스 문서](./docs/showcase.md)를 참고하세요.
 
 Node.js 20 이상, pnpm 9.14.2를 사용합니다. npm 배포는 Changesets와 저장소의 Trusted Publishing CI를 통해 수행하며, 로컬 `pnpm build`는 패키지 산출물 확인일 뿐 스토어 출시를 의미하지 않습니다.
 

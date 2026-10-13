@@ -1,0 +1,95 @@
+.demo-search-extra {
+  max-width: 280px;
+  gap: 10px;
+}
+.demo-search-extra__results {
+  display: grid;
+  gap: 5px;
+  min-height: 128px;
+}
+.demo-search-extra__result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: 7px;
+  background: rgb(var(--tori-surface-raised) / 0.7);
+  font-size: 11px;
+}
+.demo-search-extra__result > span {
+  color: rgb(var(--tori-muted));
+}
+.demo-copy-extra__command {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: var(--tori-radius-md);
+  background: rgb(var(--tori-surface));
+  text-align: left;
+}
+.demo-copy-extra__command > span {
+  color: rgb(var(--tori-muted));
+}
+.demo-copy-extra__command code {
+  font-family: var(--tori-font-mono);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.demo-copy-extra .tori-copy-button {
+  align-items: center;
+}
+.demo-copy-extra .tori-copy-button__error {
+  text-align: center;
+  font-size: 11px;
+}
+.demo-chip-extra__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 78px;
+}
+.demo-timeline-extra {
+  max-width: 280px;
+  gap: 15px;
+}
+.demo-timeline-extra .tori-timeline__item {
+  padding-bottom: 17px;
+}
+.demo-timeline-extra .tori-timeline__item:last-child {
+  padding-bottom: 0;
+}
+.demo-timeline-extra .tori-timeline__title {
+  font-size: 12px;
+}
+.demo-timeline-extra .tori-timeline__description {
+  font-size: 11px;
+  margin-top: 2px;
+}
+.demo-alert-dialog-extra__draft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-height: 95px;
+}
+.demo-alert-dialog-extra__draft > span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgb(var(--tori-primary) / 0.1);
+  color: rgb(var(--tori-primary));
+  font-size: 23px;
+}
+.demo-alert-dialog-extra__draft > small {
+  color: rgb(var(--tori-muted));
+  font-size: 11px;
+}

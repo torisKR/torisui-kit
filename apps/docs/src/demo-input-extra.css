@@ -1,0 +1,216 @@
+.demo-input-extra {
+  max-width: 290px;
+  gap: 14px;
+}
+.demo-seat-preview {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 7px;
+  padding: 7px 0;
+  align-items: end;
+  max-width: 255px;
+  margin-inline: auto;
+  width: 100%;
+}
+.demo-seat-preview > span {
+  position: relative;
+  display: block;
+  aspect-ratio: 1/1.2;
+  background: rgb(var(--tori-border) / 0.45);
+  border-radius: 10px 10px 5px 5px;
+  transform: scale(0.8);
+  opacity: 0.55;
+  transition:
+    background var(--tori-motion-normal) var(--tori-ease),
+    transform var(--tori-motion-normal) var(--tori-ease);
+}
+.demo-seat-preview > span i {
+  position: absolute;
+  display: block;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  height: 5px;
+  border-radius: 3px;
+  background: rgb(var(--tori-bg) / 0.35);
+}
+.demo-seat-preview > span[data-active='true'] {
+  background: rgb(var(--tori-primary));
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 0 4px 6px rgb(var(--tori-primary) / 0.12);
+}
+.demo-input-extra .tori-number-input {
+  max-width: 230px;
+  margin-inline: auto;
+}
+.demo-input-extra .tori-number-input__control {
+  font-size: 15px;
+}
+.demo-input-extra .tori-segmented-control {
+  width: 100%;
+}
+.demo-input-extra .tori-segmented-control__item {
+  font-size: 11px;
+  padding: 8px 10px;
+}
+.demo-view-layout {
+  width: 100%;
+  min-height: 78px;
+  max-width: 280px;
+}
+.demo-view-layout--board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.demo-view-layout--board > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: 9px;
+  background: rgb(var(--tori-surface-raised));
+  padding: 11px 9px;
+  font-size: 10px;
+  color: rgb(var(--tori-fg));
+}
+.demo-view-dot {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: rgb(var(--tori-primary));
+}
+.demo-view-dot--1 {
+  background: rgb(var(--tori-info));
+}
+.demo-view-dot--2 {
+  background: rgb(var(--tori-success));
+}
+.demo-view-line {
+  display: block;
+  height: 3px;
+  border-radius: 3px;
+  background: rgb(var(--tori-border));
+  width: 75%;
+  margin-top: 1px;
+}
+.demo-view-layout--list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.demo-view-layout--list > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 28px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: 7px;
+  background: rgb(var(--tori-surface-raised));
+  padding: 6px 10px;
+  font-size: 10px;
+  color: rgb(var(--tori-fg));
+}
+.demo-view-layout--list .demo-view-line {
+  margin-left: auto;
+  width: 30%;
+}
+.demo-view-layout--calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+}
+.demo-view-layout--calendar > span {
+  display: grid;
+  place-items: center;
+  min-height: 33px;
+  border-radius: 6px;
+  background: rgb(var(--tori-surface-raised));
+  border: 1px solid rgb(var(--tori-border));
+  font-size: 9px;
+  color: rgb(var(--tori-muted));
+  font-variant-numeric: tabular-nums;
+}
+.demo-view-layout--calendar > span[data-marked='true'] {
+  background: rgb(var(--tori-primary));
+  color: rgb(var(--tori-primary-fg));
+  border-color: rgb(var(--tori-primary));
+}
+.demo-step-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  text-align: center;
+  border-radius: 9px;
+  background: rgb(var(--tori-primary) / 0.05);
+  color: rgb(var(--tori-fg));
+  font-size: 11px;
+  padding: 9px;
+}
+.demo-input-extra .tori-stepper__text {
+  font-size: 10px;
+}
+.demo-input-extra .tori-stepper__number {
+  width: 33px;
+  height: 33px;
+  font-size: 10px;
+}
+.demo-input-extra .tori-stepper__item:not(:last-child)::after {
+  top: 20px;
+}
+.demo-input-extra .tori-tag-input__tag {
+  font-size: 11px;
+}
+.demo-input-extra .tori-tag-input__control {
+  font-size: 11px;
+}
+.demo-input-extra .tori-field__message {
+  font-size: 10px;
+}
+.demo-meter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: 11px;
+  background: rgb(var(--tori-surface-raised));
+}
+.demo-meter-heading > span {
+  font-size: 11px;
+  color: rgb(var(--tori-muted));
+}
+.demo-meter-heading > strong {
+  font-family: var(--tori-font-mono);
+  font-size: 24px;
+  letter-spacing: -0.07em;
+  color: rgb(var(--tori-fg));
+}
+.demo-meter-heading small {
+  font-family: var(--tori-font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  color: rgb(var(--tori-muted));
+  letter-spacing: 0;
+}
+.demo-input-extra .tori-meter-field__header,
+.demo-input-extra .tori-meter-field__value {
+  font-size: 10px;
+}
+@media (max-width: 430px) {
+  .demo-input-extra {
+    max-width: 100%;
+  }
+  .demo-seat-preview {
+    gap: 5px;
+  }
+  .demo-input-extra .tori-segmented-control__item {
+    padding-inline: 7px;
+  }
+}

@@ -1,0 +1,223 @@
+/* Additional input, display, clipboard, and confirmation components. */
+.tori-search-input {
+  position: relative;
+  min-width: 0;
+}
+.tori-search-input__control {
+  width: 100%;
+  padding-inline: 38px 38px;
+}
+.tori-search-input__control::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.tori-search-input__icon {
+  position: absolute;
+  inset-inline-start: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(var(--tori-muted));
+  pointer-events: none;
+}
+.tori-search-input__clear {
+  position: absolute;
+  inset-inline-end: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--tori-radius-sm);
+  background: transparent;
+  color: rgb(var(--tori-muted));
+  cursor: pointer;
+}
+.tori-search-input__clear:hover:not(:disabled) {
+  background: rgb(var(--tori-fg) / 0.06);
+  color: rgb(var(--tori-fg));
+}
+.tori-search-input__clear:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.tori-search-input--sm .tori-search-input__clear {
+  width: 28px;
+  height: 28px;
+}
+.tori-copy-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: 100%;
+}
+.tori-copy-button__control[data-copy-state='copied'] {
+  color: rgb(var(--tori-success));
+  border-color: rgb(var(--tori-success) / 0.35);
+}
+.tori-copy-button__control[data-copy-state='error'] {
+  color: rgb(var(--tori-danger));
+  border-color: rgb(var(--tori-danger) / 0.4);
+}
+.tori-copy-button__error {
+  max-width: 32ch;
+  color: rgb(var(--tori-danger));
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.tori-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  max-width: 100%;
+  padding: 4px 10px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: var(--tori-radius-full);
+  background: rgb(var(--tori-surface));
+  color: rgb(var(--tori-fg));
+  font-size: 12px;
+  line-height: 1.4;
+}
+.tori-chip__label {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.tori-chip--primary {
+  border-color: rgb(var(--tori-primary) / 0.2);
+  background: rgb(var(--tori-primary) / 0.1);
+  color: rgb(var(--tori-primary));
+}
+.tori-chip--success {
+  border-color: rgb(var(--tori-success) / 0.2);
+  background: rgb(var(--tori-success) / 0.1);
+  color: rgb(var(--tori-success));
+}
+.tori-chip--warning {
+  border-color: rgb(var(--tori-warning) / 0.3);
+  background: rgb(var(--tori-warning) / 0.12);
+  color: rgb(var(--tori-fg));
+}
+.tori-chip--danger {
+  border-color: rgb(var(--tori-danger) / 0.2);
+  background: rgb(var(--tori-danger) / 0.1);
+  color: rgb(var(--tori-danger));
+}
+.tori-chip--info {
+  border-color: rgb(var(--tori-info) / 0.2);
+  background: rgb(var(--tori-info) / 0.1);
+  color: rgb(var(--tori-info));
+}
+.tori-chip[aria-disabled='true'] {
+  opacity: 0.5;
+}
+.tori-chip__remove {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: -2px -4px -2px 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.tori-chip__remove:hover:not(:disabled) {
+  background: rgb(var(--tori-fg) / 0.08);
+}
+.tori-chip__remove:disabled {
+  cursor: not-allowed;
+}
+.tori-timeline {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.tori-timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  padding-bottom: 24px;
+}
+.tori-timeline__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 11px;
+  top: 27px;
+  bottom: 3px;
+  width: 2px;
+  background: rgb(var(--tori-border));
+}
+.tori-timeline__item:last-child {
+  padding-bottom: 0;
+}
+.tori-timeline__marker {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgb(var(--tori-border));
+  border-radius: 50%;
+  background: rgb(var(--tori-surface));
+  color: rgb(var(--tori-muted));
+}
+.tori-timeline__marker > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.tori-timeline__item--completed .tori-timeline__marker {
+  background: rgb(var(--tori-success) / 0.14);
+  color: rgb(var(--tori-success));
+  border-color: rgb(var(--tori-success) / 0.3);
+}
+.tori-timeline__item--current .tori-timeline__marker {
+  background: rgb(var(--tori-primary) / 0.14);
+  color: rgb(var(--tori-primary));
+  border-color: rgb(var(--tori-primary) / 0.4);
+  box-shadow: 0 0 0 3px rgb(var(--tori-primary) / 0.08);
+}
+.tori-timeline__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  min-height: 24px;
+}
+.tori-timeline__title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.tori-timeline__date {
+  color: rgb(var(--tori-muted));
+  font-size: 11px;
+  white-space: nowrap;
+}
+.tori-timeline__description {
+  margin-top: 5px;
+  color: rgb(var(--tori-muted));
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.tori-alert-dialog__confirm--danger {
+  background: rgb(var(--tori-danger));
+  color: rgb(var(--tori-bg));
+}
+.tori-alert-dialog__confirm--danger:hover:not(:disabled) {
+  background: rgb(var(--tori-danger));
+  filter: brightness(0.92);
+}

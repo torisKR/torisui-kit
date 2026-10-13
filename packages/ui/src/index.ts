@@ -66,11 +66,7 @@ export type { KbdProps } from './components/kbd';
 export { EmptyState } from './components/empty-state';
 export type { EmptyStateProps } from './components/empty-state';
 
-export {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-} from './components/collapsible';
+export { Collapsible, CollapsibleTrigger, CollapsibleContent } from './components/collapsible';
 export type {
   CollapsibleProps,
   CollapsibleTriggerProps,
@@ -191,6 +187,28 @@ export type {
   DropdownMenuItemProps,
 } from './components/dropdown-menu';
 
+// Source extensions (not yet published in npm 0.5.0)
+export { NumberInput } from './components/number-input';
+export type { NumberInputProps } from './components/number-input';
+export { SegmentedControl } from './components/segmented-control';
+export type { SegmentedControlProps, SegmentedControlOption } from './components/segmented-control';
+export { Stepper } from './components/stepper';
+export type { StepperProps, StepperStep } from './components/stepper';
+export { TagInput } from './components/tag-input';
+export type { TagInputProps, TagInputMessages } from './components/tag-input';
+export { Meter } from './components/meter';
+export type { MeterProps } from './components/meter';
+export { SearchInput } from './components/search-input';
+export type { SearchInputProps } from './components/search-input';
+export { CopyButton } from './components/copy-button';
+export type { CopyButtonProps } from './components/copy-button';
+export { Chip } from './components/chip';
+export type { ChipProps } from './components/chip';
+export { Timeline, TimelineItem } from './components/timeline';
+export type { TimelineProps, TimelineItemProps, TimelineStatus } from './components/timeline';
+export { AlertDialog } from './components/alert-dialog';
+export type { AlertDialogProps } from './components/alert-dialog';
+
 // Primitives
 export { Slot, composeRefs } from './primitives/slot';
 export type { SlotProps } from './primitives/slot';
@@ -205,10 +223,7 @@ export { useControllableState } from './hooks/use-controllable-state';
 export { useEscapeKey } from './hooks/use-escape-key';
 export { useFocusReturn } from './hooks/use-focus-return';
 export { useDismissableLayer } from './hooks/use-dismissable-layer';
-export {
-  useAnchoredPosition,
-  resolvePlacement,
-} from './hooks/use-anchored-position';
+export { useAnchoredPosition, resolvePlacement } from './hooks/use-anchored-position';
 export type {
   Side,
   Align,
