@@ -17,6 +17,7 @@
     "build": "pnpm -r build",
     "export:site": "node scripts/export-site.mjs",
     "verify:gallery": "node --test scripts/gallery-schema.test.mjs && node scripts/verify-gallery.mjs",
+    "verify:package-examples": "node scripts/verify-package-examples.mjs",
     "lint": "eslint .",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",

@@ -48,10 +48,10 @@ function CopyButtonDemo() {
     <div className="demo-stack demo-center demo-copy-extra">
       <div className="demo-copy-extra__command">
         <span aria-hidden="true">$</span>
-        <code>npm install @toris-dev/ui</code>
+        <code>npm install @toris-dev/ui@^0.6.0</code>
       </div>
       <CopyButton
-        text="npm install @toris-dev/ui"
+        text="npm install @toris-dev/ui@^0.6.0"
         copyingLabel="복사 중…"
         copiedLabel="복사 완료"
         errorLabel="다시 복사"
@@ -186,7 +186,7 @@ export const displayExtraDemos: Demo[] = [
     title: '찾는 순간, 바로 보이는 결과',
     name: 'SearchInput',
     category: 'form',
-    release: 'next',
+    release: '0.6.0',
     component: SearchInputDemo,
     description:
       '이름을 입력하면 결과가 바뀌어요. 지우기 버튼과 Escape로 검색어를 비워도 입력 포커스가 유지돼요.',
@@ -205,15 +205,15 @@ export const displayExtraDemos: Demo[] = [
     title: '복사한 순간을 분명하게',
     name: 'CopyButton',
     category: 'action',
-    release: 'next',
+    release: '0.6.0',
     component: CopyButtonDemo,
     description:
       '설치 명령어를 실제 클립보드에 복사해보세요. 복사가 끝난 뒤 완료를 알리고, 사용할 수 없으면 실패 상태를 알려줘요.',
     code: example(
       'CopyButton',
       `  return <div>
-    <code>npm install @toris-dev/ui</code>
-    <CopyButton text="npm install @toris-dev/ui" copyingLabel="복사 중…" copiedLabel="복사 완료" errorLabel="다시 복사" successMessage="설치 명령어를 클립보드에 복사했어요." errorMessage="클립보드를 사용할 수 없어요. 명령어를 선택해 직접 복사하세요.">명령어 복사</CopyButton>
+    <code>npm install @toris-dev/ui@^0.6.0</code>
+    <CopyButton text="npm install @toris-dev/ui@^0.6.0" copyingLabel="복사 중…" copiedLabel="복사 완료" errorLabel="다시 복사" successMessage="설치 명령어를 클립보드에 복사했어요." errorMessage="클립보드를 사용할 수 없어요. 명령어를 선택해 직접 복사하세요.">명령어 복사</CopyButton>
   </div>;`,
     ),
   },
@@ -222,7 +222,7 @@ export const displayExtraDemos: Demo[] = [
     title: '선택한 취향을 가볍게 정리',
     name: 'Chip',
     category: 'display',
-    release: 'next',
+    release: '0.6.0',
     component: ChipDemo,
     description:
       '선택한 필터를 하나씩 제거하고 다시 선택해보세요. 필수 필터는 비활성화되어 제거할 수 없어요.',
@@ -243,7 +243,7 @@ export const displayExtraDemos: Demo[] = [
     title: '과정과 현재 위치를 한눈에',
     name: 'Timeline',
     category: 'display',
-    release: 'next',
+    release: '0.6.0',
     component: TimelineDemo,
     description:
       '다음 단계로 진행하며 완료·현재·예정 상태를 확인하세요. 순서 있는 목록과 현재 단계의 의미를 함께 제공해요.',
@@ -262,7 +262,7 @@ export const displayExtraDemos: Demo[] = [
     title: '중요한 결정에 한 번 더 확인',
     name: 'AlertDialog',
     category: 'overlay',
-    release: 'next',
+    release: '0.6.0',
     component: AlertDialogDemo,
     description:
       '초안을 삭제하거나 계속 편집하세요. 취소 버튼에 먼저 포커스되며 Escape도 삭제 없이 취소해요.',

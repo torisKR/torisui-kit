@@ -33,6 +33,12 @@ jobs:
       - run: pnpm test
       - run: pnpm build
 
+      - name: Verify packed gallery and README examples
+        run: |
+          npm pack ./packages/ui --pack-destination /tmp --json > /tmp/torisui-pack.json
+          PACKAGE_ARCHIVE=$(node -p "require('/tmp/torisui-pack.json')[0].filename")
+          node scripts/verify-package-examples.mjs "/tmp/$PACKAGE_ARCHIVE" --clean
+
       - name: Verify publish contents
         working-directory: packages/ui
         run: npm pack --dry-run

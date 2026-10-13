@@ -6,12 +6,14 @@ publishing a GitHub Release.
 ## Release flow
 
 ```txt
-1. Develop on feat/* branches; include a changeset in the PR
+1. Develop on codex/* branches; include a changeset in the PR
 2. CI passes → merge to main
 3. pnpm changeset version   # bump versions + generate CHANGELOG, commit
 4. git tag v0.x.y && publish a GitHub Release
 5. publish.yml runs automatically → re-verifies gates → npm publish (Trusted Publishing)
 6. Confirm the new version on npm
+7. Install the registry tarball in the standalone example verifier
+8. Deploy the gallery after its examples and install command match the public version
 ```
 
 The workflow asserts the release tag equals `v<package version>` — a mismatched
@@ -36,16 +38,16 @@ npm publish --access public
 
 `@toris-dev/ui` package → Settings → **Trusted Publisher**:
 
-| Field | Value |
-| --- | --- |
-| Publisher | GitHub Actions |
+| Field             | Value                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------- |
+| Publisher         | GitHub Actions                                                                     |
 | Organization/User | The GitHub **repository owner** (may differ from the npm account name — watch out) |
-| Repository | `torisui-kit` |
-| Workflow filename | `publish.yml` |
-| Environment | `npm` |
+| Repository        | `torisui-kit`                                                                      |
+| Workflow filename | `publish.yml`                                                                      |
+| Environment       | `npm`                                                                              |
 
-> Example: if the repo is `ironjustlikethat/torisui-kit`, Organization/User is
-> `ironjustlikethat`; if it's `toris-dev/torisui-kit`, use `toris-dev`.
+This repository is `torisKR/torisui-kit`: use `torisKR` as Organization/User.
+The package manifest's repository URL must match this repository.
 
 ### On the GitHub repository
 
@@ -73,19 +75,40 @@ If Trusted Publishing isn't configured yet or OIDC isn't possible:
 - [ ] `cd packages/ui && npm pack --dry-run` — only dist/README/LICENSE included
 - [ ] `pnpm changeset version` has run (version bump + CHANGELOG)
 - [ ] README up to date
+- [ ] `pnpm verify:package-examples /path/to/package.tgz` passes all gallery and complete README examples in a separate consumer project
 - [ ] Package name `@toris-dev/ui`, `publishConfig.access: public` confirmed
 - [ ] Release tag equals `v<package version>`
 - [ ] GitHub Release notes written (from the Changesets CHANGELOG)
 
 ## 4. Version rules (Changesets)
 
-| Change | semver |
-| --- | --- |
-| Breaking prop/behavior change, token rename | major |
-| New component, new prop, new token | minor |
-| Bug fix, style tweak, docs | patch |
+| Change                                      | semver |
+| ------------------------------------------- | ------ |
+| Breaking prop/behavior change, token rename | major  |
+| New component, new prop, new token          | minor  |
+| Bug fix, style tweak, docs                  | patch  |
 
 During 0.x, breaking changes ship as minor (npm semver convention).
+
+## Published-package example verification
+
+The CI and both publishing workflows pack the built library and run
+`scripts/verify-package-examples.mjs` before publication. The verifier installs
+the artifact in an isolated consumer, checks all 47 gallery TSX examples and
+complete README TSX examples against the packaged declarations, and checks the
+new components in ESM/CJS and the packaged CSS.
+
+After publication, repeat the same verification with the registry artifact:
+
+```sh
+npm pack @toris-dev/ui@0.6.0 --pack-destination /tmp
+pnpm verify:package-examples /tmp/toris-dev-ui-0.6.0.tgz
+```
+
+The consumer project is preserved for browser verification by default. Its
+`index.html` and `main.tsx` mount the selected copied example with the installed
+`ToriProvider` and package stylesheet. Use `--clean` for CI, and `--offline` only
+when the required dependencies are already in the npm cache.
 
 ## 5. Incident response
 

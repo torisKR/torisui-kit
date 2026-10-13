@@ -165,7 +165,7 @@ export const inputExtraDemos: Demo[] = [
     name: 'NumberInput',
     title: '숫자는 정확하게, 조절은 간편하게',
     category: 'form',
-    release: 'next',
+    release: '0.6.0',
     description: '입력과 더하기·빼기를 연결했어요. 최솟값과 최댓값, 소수 단위와 방향키를 지원해요.',
     component: NumberInputDemo,
     code: `import * as React from 'react';
@@ -185,7 +185,7 @@ export default function Example() {
     name: 'SegmentedControl',
     title: '하나의 선택으로 달라지는 보기',
     category: 'form',
-    release: 'next',
+    release: '0.6.0',
     description:
       '보드·리스트·달력을 하나의 선택 그룹으로 묶었어요. 방향키와 Home·End로도 전환하세요.',
     component: SegmentedControlDemo,
@@ -210,7 +210,7 @@ export default function Example() {
     name: 'Stepper',
     title: '시작부터 완성까지, 한 단계씩',
     category: 'navigation',
-    release: 'next',
+    release: '0.6.0',
     description:
       '워크플로의 현재 단계와 완료된 단계를 보여줘요. 단계 클릭, 이전·다음 이동을 체험하세요.',
     component: StepperDemo,
@@ -234,7 +234,7 @@ export default function Example() {
     name: 'TagInput',
     title: '생각을 키워드로 모아두기',
     category: 'form',
-    release: 'next',
+    release: '0.6.0',
     description:
       'Enter·쉼표로 추가하고 삭제 버튼·Backspace로 제거하세요. 중복과 개수·길이 제한을 확인해보세요.',
     component: TagInputDemo,
@@ -257,7 +257,7 @@ export default function Example() {
     name: 'Meter',
     title: '지금의 상태를 정확하게 측정하기',
     category: 'display',
-    release: 'next',
+    release: '0.6.0',
     description:
       '저장 공간처럼 범위 안의 현재 측정값을 보여줘요. 실제 meter 요소로 진행률과 의미를 구분해요.',
     component: MeterDemo,

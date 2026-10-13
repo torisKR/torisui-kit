@@ -16,6 +16,17 @@ const matches = [
 ];
 assert.equal(matches.length, 1, 'Expected one build-time JSON-LD graph');
 const catalog = await readGalleryCatalog(root);
+const manifest = JSON.parse(
+  await readFile(new URL('../packages/ui/package.json', import.meta.url), 'utf8'),
+);
+assert.ok(
+  catalog.every((demo) => !demo.release || demo.release !== 'next'),
+  'Every gallery component must be available in the published npm version',
+);
+assert.ok(
+  catalog.every((demo) => !demo.release || demo.release === manifest.version),
+  'New component badges must match the package being released',
+);
 const schema = JSON.parse(matches[0][1]);
 assert.deepEqual(
   schema,

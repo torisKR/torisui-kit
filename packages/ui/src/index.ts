@@ -187,7 +187,7 @@ export type {
   DropdownMenuItemProps,
 } from './components/dropdown-menu';
 
-// Source extensions (not yet published in npm 0.5.0)
+// Additional components available from npm 0.6.0
 export { NumberInput } from './components/number-input';
 export type { NumberInputProps } from './components/number-input';
 export { SegmentedControl } from './components/segmented-control';

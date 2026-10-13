@@ -457,7 +457,7 @@ function BadgeDemo() {
         <Badge tone="success" dot>
           온라인
         </Badge>
-        <Badge variant="outline">v0.5.0</Badge>
+        <Badge variant="outline">v0.6.0</Badge>
       </div>
       <div className="demo-badge-stage">
         <span>프로젝트 상태</span>
@@ -1456,7 +1456,7 @@ export const demos: Demo[] = [
   const states = [{ tone: 'primary' as const, text: '새 프로젝트' }, { tone: 'warning' as const, text: '진행 중' }, { tone: 'success' as const, text: '완료' }];
   const status = states[step]!;
   return <div>
-    <Badge variant="gradient">NEW</Badge><Badge tone="success" dot>온라인</Badge><Badge variant="outline">v0.5.0</Badge>
+    <Badge variant="gradient">NEW</Badge><Badge tone="success" dot>온라인</Badge><Badge variant="outline">v0.6.0</Badge>
     <Badge tone={status.tone} dot>{status.text}</Badge>
     <Button variant="ghost" size="sm" onClick={() => setStep((step + 1) % states.length)}>다음 상태</Button>
   </div>;`,

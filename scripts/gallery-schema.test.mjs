@@ -13,11 +13,11 @@ const metadata = {
   title: '태그로 정리하기',
   category: 'form',
   description: '태그를 추가하고 삭제하세요.',
-  release: 'next',
+  release: '0.6.0',
 };
 
 test('catalog extraction ignores rendered JSX and copied code, preserving real metadata', () => {
-  const source = `export const demos = [{ id: 'tag-input', name: 'TagInput', title: '태그로 정리하기', category: 'form', description: '태그를 추가하고 삭제하세요.', release: 'next', component: TagInputDemo, code: example('wrong', 'wrong') }];`;
+  const source = `export const demos = [{ id: 'tag-input', name: 'TagInput', title: '태그로 정리하기', category: 'form', description: '태그를 추가하고 삭제하세요.', release: '0.6.0', component: TagInputDemo, code: example('wrong', 'wrong') }];`;
   assert.deepEqual(parseDemoMetadata(source, 'demos'), [metadata]);
   assert.throws(
     () =>

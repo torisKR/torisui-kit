@@ -2,7 +2,7 @@
 
 `apps/docs`는 `@toris-dev/ui`의 실제 컴포넌트를 조작하는 공개 갤러리입니다. 분류·한국어/영어 검색, 라이트/다크 테마, 브랜드 색상·모서리 설정, 큰 미리보기와 320px 너비 체험, 예제 코드 복사, 예제 초기화를 제공합니다. 표시 개수는 데모 카탈로그에서 계산합니다.
 
-기존 37종에 NumberInput, SegmentedControl, Stepper, TagInput, Meter, SearchInput, CopyButton, Chip, Timeline, AlertDialog를 추가했습니다. 추가 10종은 이 저장소의 소스 확장으로 제공하며, npm 0.5.0에는 포함되어 있지 않습니다. 갤러리 카드와 상세 설명에서도 이 구분을 표시합니다. npm 패키지를 별도로 출시하기 전에는 이 저장소에서 빌드한 라이브러리를 사용하세요.
+기존 37종에 NumberInput, SegmentedControl, Stepper, TagInput, Meter, SearchInput, CopyButton, Chip, Timeline, AlertDialog를 추가했습니다. 추가 10종은 npm 0.6.0부터 공개 API와 스타일에 포함됩니다. 카드와 상세 설명에 처음 포함된 버전을 표시합니다. 갤러리 설치 명령어는 패키지 manifest의 버전에서 생성하며, `npm install @toris-dev/ui@^0.6.0`으로 설치한 뒤 공통 CSS와 `ToriProvider`를 적용하면 모든 사용 예시를 사용할 수 있습니다.
 
 ## 구조화 데이터와 검증
 
@@ -14,6 +14,8 @@ pnpm verify:gallery
 ```
 
 검증은 JSON-LD와 실제 카탈로그 일치, HTML 직렬화 안전성, canonical, 컴포넌트 public export를 확인합니다. 배포 후 [Schema.org Validator](https://validator.schema.org/)와 [Google Rich Results Test](https://search.google.com/test/rich-results)에서 운영 주소를 확인할 수 있습니다. 스키마 모델은 [CollectionPage](https://schema.org/CollectionPage), [SoftwareSourceCode](https://schema.org/SoftwareSourceCode), [Google 구조화 데이터 지침](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)을 따릅니다.
+
+`pnpm verify:package-examples /absolute/path/to/package.tgz`는 별도 소비자 프로젝트에 실제 tarball을 설치하여 47개 예시와 README의 TSX를 타입 검사하고, ESM/CJS 공개 API 및 CSS 포함 여부를 확인합니다. npm 출시 후에는 레지스트리에서 받은 tarball로 같은 검증을 다시 수행합니다.
 
 ## 로컬 확인
 

@@ -12,6 +12,7 @@ import {
   Check,
 } from '@phosphor-icons/react';
 import { demos, type Demo } from './demos';
+import { installCommand, packageVersion } from './package-info';
 
 type Category = 'all' | Demo['category'];
 type ViewState = { category: Category; query: string; component: string | null };
@@ -412,7 +413,10 @@ function Gallery() {
               <br className="kit-desktop-break" /> 직접 사용하며 나에게 맞는 인터페이스를
               찾아보세요.
             </p>
-            <CopyControl text="npm install @toris-dev/ui" label="설치 명령어 복사" command />
+            <CopyControl text={installCommand} label="설치 명령어 복사" command />
+            <p className="kit-install-version">
+              npm v{packageVersion} · 모든 예시를 설치해서 사용하세요.
+            </p>
           </div>
         </section>
         <section className="kit-gallery" aria-labelledby="components">
@@ -489,9 +493,7 @@ function Gallery() {
                       <div className="kit-tile__label">
                         <h3>
                           {demo.title}
-                          {demo.release === 'next' && (
-                            <span className="kit-next-badge">소스 확장</span>
-                          )}
+                          {demo.release && <span className="kit-next-badge">v{demo.release}</span>}
                         </h3>
                         <span>{demo.name}</span>
                       </div>
@@ -617,10 +619,10 @@ function Gallery() {
                   공통 설정: <code>import '@toris-dev/ui/styles.css'</code>를 한 번 추가하고, 앱
                   루트를 <code>{'<ToriProvider>…</ToriProvider>'}</code>로 감싸주세요.
                 </p>
-                {current.release === 'next' && (
+                {current.release && (
                   <p className="kit-next-note">
-                    <span>소스 확장</span>확장 기능은 소스 버전으로 제공됩니다. 아래 코드는 소스
-                    버전용 예시이며, 현재 npm 0.5.0에는 아직 포함되지 않았습니다.
+                    <span>npm v{current.release}</span>이 컴포넌트는 npm v{current.release}부터
+                    포함되어 있습니다. 위 설치 명령어로 설치한 뒤 아래 예시를 바로 사용하세요.
                   </p>
                 )}
                 <div className="kit-code">

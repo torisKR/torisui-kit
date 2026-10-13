@@ -8,6 +8,6 @@ export type Demo = {
   description: string;
   code: string;
   component: ComponentType;
-  /** Source extension; not yet included in the published npm package. */
-  release?: 'next';
+  /** First published npm version for recently added components. */
+  release?: '0.6.0';
 };

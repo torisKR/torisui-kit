@@ -1,5 +1,15 @@
 # @toris-dev/ui
 
+## 0.6.0
+
+### Minor Changes
+
+- Publish NumberInput, SegmentedControl, Stepper, TagInput, Meter, SearchInput,
+  CopyButton, Chip, Timeline, and AlertDialog with their public TypeScript types and
+  styles. The interactive gallery now includes 47 installable examples, with
+  brand color, corner, and preview width controls. Update package documentation
+  and repository metadata to match the published APIs.
+
 ## 0.5.0
 
 ### Minor Changes
